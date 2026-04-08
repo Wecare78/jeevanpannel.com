@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Customer ID - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title">CONGRATULATIONS YOUR PANNEL IS ACTIVATED</div>
+
+    <div class="customer-id-box">
+        <p>YOUR 12 DIGIT CUSTOMER ID IS</p>
+        <div class="id-display">
+            <span id="customerIdDisplay">56744@JEEVAN</span>
+            <button class="copy-btn" id="copyCustIdBtn"><i class="fas fa-copy"></i> COPY</button>
+        </div>
+    </div>
+
+    <input class="input" id="verifyCustId" placeholder="ENTER YOUR CUSTOMER ID TO VERIFY">
+
+    <button class="btn" id="verifyCustomerBtn">VERIFY CUSTOMER ID</button>
+    <button class="btn btn-back" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> SUPPORT</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title">PAYMENT VERIFICATION</div>
+
+    <input class="input" id="utrNumber" placeholder="ENTER UTR" maxlength="20">
+    
+    <div class="file-upload">
+        <label for="paymentScreenshot">
+            <i class="fas fa-cloud-upload-alt"></i> UPLOAD PAYMENT SCREENSHOT
+        </label>
+        <input type="file" id="paymentScreenshot" accept="image/*">
+        <span id="paymentFileDisplay" style="display: none; margin-top: 8px; font-size: 12px; color: #4CAF50;">✓ File selected</span>
+    </div>
+
+    <button class="btn" id="submitPaymentBtn">SUBMIT PAYMENT</button>
+    <button class="btn btn-back" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> SUPPORT</div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const paymentInput = document.getElementById("paymentScreenshot");
+    if (paymentInput) {
+        paymentInput.addEventListener("change", (e) => {
+            const display = document.getElementById("paymentFileDisplay");
+            if (display && e.target.files.length > 0) {
+                display.style.display = "inline";
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Panel - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="running-panel-container">
+    <div class="username-info">Welcome, <strong id="runUsername">User</strong></div>
+
+    <div class="account-status">
+        <div class="status-info">
+            <p>LAST 4 DIGITS: <span id="accLast4">0000</span></p>
+            <p>IFSC: <span id="accIfsc">XXXX</span></p>
+            <p>Holder: <span id="accHolder">N/A</span></p>
+        </div>
+        <div class="status-indicator" id="statusIndicator">
+            <span class="status-dot active"></span>
+            <span>ACTIVE</span>
+        </div>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <p class="stat-label">TOTAL CREDITED</p>
+            <p class="stat-value" id="totalCredited">₹ 0</p>
+        </div>
+        <div class="stat">
+            <p class="stat-label">WITHDRAWABLE (3.9%)</p>
+            <p class="stat-value" id="withdrawable">₹ 0</p>
+        </div>
+    </div>
+
+    <div class="transactions-section">
+        <p class="section-title">LIVE TRANSACTIONS</p>
+        <div class="transactions-list" id="transactionsList">
+            <p style="text-align: center; color: #999;">Waiting for transactions...</p>
+        </div>
+    </div>
+
+    <button class="btn" id="withdrawBtn">WITHDRAW COMMISSION</button>
+    <button class="btn btn-back" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

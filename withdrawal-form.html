@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal Form - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title" id="formTitle">WITHDRAW COMMISSION</div>
+    <p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 20px;">(YOU CAN WITHDRAW THE COMMISSION TO ANY ACCOUNT)</p>
+
+    <input class="input" id="wAccNumber" placeholder="ACCOUNT NUMBER">
+    <input class="input" id="wIfscCode" placeholder="IFSC CODE">
+    <input class="input" id="wAccHolder" placeholder="ACCOUNT HOLDER NAME">
+    <input class="input" id="wBankName" placeholder="BANK NAME">
+
+    <button class="btn" id="withdrawAmountBtn">
+        WITHDRAW <span id="withdrawAmount">₹ 0</span>
+    </button>
+
+    <p style="margin-top: 15px; font-size: 13px; color: #666;">YOU CAN WITHDRAW COMMISSION INTO ANY ACCOUNT</p>
+
+    <div id="taxSection" style="display: none; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+        <p style="color: #856404;"><strong>PAY ₹ 229 TAX TO GET ONSPOT COMMISSION</strong></p>
+        
+        <div style="margin-top: 10px; color: #ff6b6b; font-size: 14px;">
+            <p><i class="fas fa-sticky-note" style="color: #ff6b6b;"></i> <strong>NOTE:</strong></p>
+            <ul style="margin-left: 20px; line-height: 1.5;">
+                <li>All transactions are currently stored in the portal.</li>
+                <li>When you withdraw, the total amount will be credited to your account at once.</li>
+                <li>Until you withdraw, the payments will remain in the portal.</li>
+                <li>If you choose not to withdraw, the transactions will be automatically cancelled.</li>
+            </ul>
+        </div>
+        
+        <div class="upi-section">
+            <p style="font-weight: bold; margin-bottom: 10px; color: #FF4D8D;">PAY IMPS TAX :- 229 ₹</p>
+            <p class="upi-label">UPI ID:</p>
+            <div class="upi-box">
+                <span>jeevanpannelofficial@slc</span>
+                <button class="copy-btn" id="copyWithdrawUpiBtn"><i class="fas fa-copy"></i> COPY</button>
+            </div>
+        </div>
+
+        <p class="section-title">PAY THROUGH UPI</p>
+        <div class="upi-apps" id="withdrawUpiApps"></div>
+
+        <input class="input" id="withdrawUtr" placeholder="ENTER UTR" maxlength="20">
+        <div class="file-upload">
+            <label for="withdrawScreenshot">
+                <i class="fas fa-cloud-upload-alt"></i> UPLOAD PAYMENT SCREENSHOT
+            </label>
+            <input type="file" id="withdrawScreenshot" accept="image/*">
+            <span id="fileNameDisplay" style="display: none; margin-top: 8px; font-size: 12px; color: #4CAF50;">✓ File selected</span>
+        </div>
+
+        <button class="btn" id="finalWithdrawBtn">WITHDRAW INSTANTLY</button>
+    </div>
+
+    <button class="btn btn-back" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const withdrawInput = document.getElementById("withdrawScreenshot");
+    if (withdrawInput) {
+        withdrawInput.addEventListener("change", (e) => {
+            const display = document.getElementById("fileNameDisplay");
+            if (display && e.target.files.length > 0) {
+                display.style.display = "inline";
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

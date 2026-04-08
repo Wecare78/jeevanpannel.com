@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+    <span id="headerLogout" style="cursor: pointer; font-size: 14px;">Logout</span>
+</header>
+
+<div class="dashboard-container">
+    <div class="welcome-section">
+        <p>Welcome, <strong id="dashUsername">User</strong></p>
+    </div>
+
+    <div class="account-selection">
+        <p class="section-title">SELECT ACCOUNT TYPE</p>
+        <div class="account-buttons">
+            <button class="account-btn" data-type="saving" style="background: #4CAF50;">
+                <i class="fas fa-piggy-bank"></i>
+                SAVING<br><small>PERDAY LIMIT BELOW ₹1.3L</small>
+            </button>
+            <button class="account-btn" data-type="current" style="background: #2196F3;">
+                <i class="fas fa-building-columns"></i>
+                CURRENT<br><small>PERDAY LIMIT BELOW ₹3.7L</small>
+            </button>
+            <button class="account-btn" data-type="corporate" style="background: #FF9800;">
+                <i class="fas fa-briefcase"></i>
+                CORPORATE<br><small>PERDAY LIMIT BELOW ₹7.4L</small>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile">
+        <i class="fas fa-user"></i> MY PROFILE
+    </div>
+    <div class="footer-item" data-page="account">
+        <i class="fas fa-wallet"></i> MY ACCOUNT
+    </div>
+    <div class="footer-item" data-page="support">
+        <i class="fas fa-headset"></i> CUSTOMER SUPPORT
+    </div>
+    <div class="footer-item" data-page="bonus">
+        <i class="fas fa-gift"></i> BONUS
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

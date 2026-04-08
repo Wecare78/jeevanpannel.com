@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title"><i class="fas fa-user-circle"></i> MY PROFILE</div>
+
+    <div class="profile-info">
+        <div class="info-row">
+            <span class="label">PHONE NUMBER:</span>
+            <span class="value" id="profilePhone">N/A</span>
+        </div>
+        <div class="info-row">
+            <span class="label">USERNAME:</span>
+            <span class="value" id="profileUsername">N/A</span>
+        </div>
+        <div class="info-row">
+            <span class="label">CUSTOMER ID:</span>
+            <span class="value" id="profileCustId">N/A</span>
+        </div>
+        <div class="info-row">
+            <span class="label">DATE OF ACCOUNT OPENING:</span>
+            <span class="value" id="profileOpenDate">N/A</span>
+        </div>
+    </div>
+
+    <button class="btn btn-danger" onclick="localStorage.removeItem('currentUser'); window.location.href='index.html';" style="margin-top: 20px; background: #f44336; color: white; border-color: #f44336;">
+        <i class="fas fa-sign-out-alt"></i> LOGOUT
+    </button>
+
+    <button class="btn" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
