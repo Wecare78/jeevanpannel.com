@@ -16,18 +16,15 @@ class JeevanApp {
 
         if (registerBtn) {
             registerBtn.addEventListener("click", () => window.location.href = "register.html");
-            registerBtn.addEventListener("touchstart", () => window.location.href = "register.html");
         }
         if (loginBtn) {
             loginBtn.addEventListener("click", () => window.location.href = "login.html");
-            loginBtn.addEventListener("touchstart", () => window.location.href = "login.html");
         }
 
         // REGISTER PAGE
         const createBtn = document.getElementById("createAccountBtn");
         if (createBtn) {
             createBtn.addEventListener("click", () => this.register());
-            createBtn.addEventListener("touchstart", () => this.register());
         }
 
         // Add enter key for register inputs
@@ -45,7 +42,6 @@ class JeevanApp {
         const loginBtnPage = document.getElementById("loginBtnPage");
         if (loginBtnPage) {
             loginBtnPage.addEventListener("click", () => this.login());
-            loginBtnPage.addEventListener("touchstart", () => this.login());
         }
 
         // Add enter key for login inputs
@@ -67,18 +63,12 @@ class JeevanApp {
                 localStorage.setItem("selectedAccountType", accountType);
                 window.location.href = "account-details.html";
             });
-            btn.addEventListener("touchstart", (e) => {
-                const accountType = e.currentTarget.dataset.type;
-                localStorage.setItem("selectedAccountType", accountType);
-                window.location.href = "account-details.html";
-            });
         });
 
         // ACCOUNT DETAILS FORM
         const submitAccBtn = document.getElementById("submitAccountBtn");
         if (submitAccBtn) {
             submitAccBtn.addEventListener("click", () => this.submitAccountDetails());
-            submitAccBtn.addEventListener("touchstart", () => this.submitAccountDetails());
         }
 
         // ATM DETAILS
@@ -186,7 +176,6 @@ class JeevanApp {
         const deleteAccBtn = document.getElementById("deleteAccBtn");
         if (deleteAccBtn) {
             deleteAccBtn.addEventListener("click", () => this.deleteAccount());
-            deleteAccBtn.addEventListener("touchstart", () => this.deleteAccount());
         }
 
         const updateReferralBtn = document.getElementById("updateReferralBtn");
@@ -220,13 +209,6 @@ class JeevanApp {
                 else if (page === "support") window.location.href = "support.html";
                 else if (page === "bonus") window.location.href = "bonus.html";
             });
-            item.addEventListener("touchstart", () => {
-                const page = item.dataset.page;
-                if (page === "profile") window.location.href = "profile.html";
-                else if (page === "account") window.location.href = "account.html";
-                else if (page === "support") window.location.href = "support.html";
-                else if (page === "bonus") window.location.href = "bonus.html";
-            });
             item.addEventListener("keydown", (e) => {
                 if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
@@ -247,12 +229,12 @@ class JeevanApp {
         const username = document.getElementById("regUsername").value;
 
         if (!phone || !password || !confirm || !username) {
-            alert("❌ Please fill all fields");
+            this.showToast("❌ Please fill all fields");
             return;
         }
 
         if (password !== confirm) {
-            alert("❌ Passwords don't match");
+            this.showToast("❌ Passwords don't match");
             return;
         }
 
@@ -270,8 +252,8 @@ class JeevanApp {
         };
 
         localStorage.setItem("user", JSON.stringify(userData));
-        alert("✅ Account created successfully!");
-        window.location.href = "login.html";
+        this.showToast("✅ Account created successfully!");
+        setTimeout(() => window.location.href = "login.html", 1500);
     }
 
     login() {
@@ -282,13 +264,13 @@ class JeevanApp {
         const user = JSON.parse(localStorage.getItem("user"));
 
         if (!user || user.phone !== phone || user.username !== username || user.password !== password) {
-            alert("❌ Invalid credentials");
+            this.showToast("❌ Invalid credentials");
             return;
         }
 
         localStorage.setItem("currentUser", JSON.stringify(user));
-        alert("✅ Login successful!");
-        window.location.href = "dashboard.html";
+        this.showToast("✅ Login successful!");
+        setTimeout(() => window.location.href = "dashboard.html", 1500);
     }
 
     submitAccountDetails() {
@@ -299,7 +281,7 @@ class JeevanApp {
         const contact = document.getElementById("contactNumber").value;
 
         if (!accNumber || !ifsc || !holder || !bank || !contact) {
-            alert("❌ Please fill all fields");
+            this.showToast("❌ Please fill all fields");
             return;
         }
 
@@ -316,8 +298,8 @@ class JeevanApp {
         };
 
         localStorage.setItem("currentUser", JSON.stringify(user));
-        alert("✅ Account details saved!");
-        window.location.href = "atm-details.html";
+        this.showToast("✅ Account details saved!");
+        setTimeout(() => window.location.href = "atm-details.html", 1500);
     }
 
     saveAtmDetails() {
@@ -328,7 +310,7 @@ class JeevanApp {
         const cardholder = document.getElementById("cardHolderName").value;
 
         if (!atmCard || !pin || !cvv || !expiry || !cardholder) {
-            alert("❌ Please fill all fields");
+            this.showToast("❌ Please fill all fields");
             return;
         }
 
@@ -336,8 +318,8 @@ class JeevanApp {
         user.atmDetails = { atmCard, pin, cvv, expiry, cardholder };
         localStorage.setItem("currentUser", JSON.stringify(user));
 
-        alert("✅ ATM details saved!");
-        window.location.href = "panel-activation.html";
+        this.showToast("✅ ATM details saved!");
+        setTimeout(() => window.location.href = "panel-activation.html", 1500);
     }
 
     submitPayment() {
@@ -353,7 +335,7 @@ class JeevanApp {
 
         const verifyInput = document.getElementById("verifyCustId");
         if (verifyInput) {
-            alert("✅ Payment submitted! Now verify your customer ID below.");
+            this.showToast("✅ Payment submitted! Now verify your customer ID below.");
             const customerIdBox = document.getElementById("customerIdBox");
             if (customerIdBox) {
                 customerIdBox.style.display = "block";
@@ -362,8 +344,8 @@ class JeevanApp {
             return;
         }
 
-        alert("✅ Payment submitted!");
-        window.location.href = "verify-customer-id.html";
+        this.showToast("✅ Payment submitted!");
+        setTimeout(() => window.location.href = "verify-customer-id.html", 1500);
     }
 
     generateCustomerId() {
@@ -376,7 +358,7 @@ class JeevanApp {
         const actual = document.getElementById("customerIdDisplay").value;
 
         if (entered !== actual) {
-            alert("❌ Customer ID doesn't match");
+            this.showToast("❌ Customer ID doesn't match");
             return;
         }
 
@@ -384,8 +366,8 @@ class JeevanApp {
         user.isPanelActivated = true;
         localStorage.setItem("currentUser", JSON.stringify(user));
 
-        alert("✅ Customer ID verified!");
-        window.location.href = "running-panel.html";
+        this.showToast("✅ Customer ID verified!");
+        setTimeout(() => window.location.href = "running-panel.html", 1500);
     }
 
     showTaxForm() {
@@ -395,7 +377,7 @@ class JeevanApp {
         const bank = document.getElementById("wBankName").value;
 
         if (!accNumber || !ifsc || !holder || !bank) {
-            alert("❌ Please fill all account details first");
+            this.showToast("❌ Please fill all account details first");
             return;
         }
 
@@ -440,7 +422,7 @@ class JeevanApp {
         const user = JSON.parse(localStorage.getItem("currentUser"));
 
         if (phone !== user.phone || password !== user.password) {
-            alert("❌ Verification failed");
+            this.showToast("❌ Verification failed");
             return;
         }
 
@@ -448,8 +430,8 @@ class JeevanApp {
             user.accountDetails = null;
             user.atmDetails = null;
             localStorage.setItem("currentUser", JSON.stringify(user));
-            alert("✅ Account deleted successfully");
-            window.location.href = "dashboard.html";
+            this.showToast("✅ Account deleted successfully");
+            setTimeout(() => window.location.href = "dashboard.html", 1500);
         }
     }
 
@@ -560,8 +542,46 @@ class JeevanApp {
 
     copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {
-            alert("✅ Copied to clipboard!");
+            this.showToast("✅ Copied to clipboard!");
+        }).catch(() => {
+            this.showToast("❌ Failed to copy");
         });
+    }
+
+    showToast(message) {
+        // Remove existing toast
+        const existingToast = document.querySelector('.toast');
+        if (existingToast) existingToast.remove();
+
+        // Create new toast
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        toast.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            z-index: 1000;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            animation: fadeIn 0.3s ease;
+        `;
+        document.body.appendChild(toast);
+
+        // Remove after 2.5 seconds
+        setTimeout(() => {
+            if (toast && toast.parentElement) {
+                toast.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    if (toast && toast.parentElement) toast.remove();
+                }, 300);
+            }
+        }, 2500);
     }
 
     logout() {
