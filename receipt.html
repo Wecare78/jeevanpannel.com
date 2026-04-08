@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Receipt - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="receipt-container">
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner"></div>
+        <p>VERIFYING</p>
+    </div>
+
+    <div id="receiptContent" class="receipt-box" style="display: none;">
+        <div class="receipt-header">
+            <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 50px;"></i>
+            <p style="font-size: 18px; color: #4CAF50; font-weight: bold;">TRANSACTION SUCCESSFUL</p>
+        </div>
+
+        <div class="receipt-details">
+            <div class="receipt-row">
+                <span>TRANSACTION ID:</span>
+                <strong id="txnId">1234567890</strong>
+            </div>
+            <div class="receipt-row">
+                <span>WITHDRAWAL AMOUNT:</span>
+                <strong id="txnAmount">₹ 0</strong>
+            </div>
+            <div class="receipt-row">
+                <span>ACCOUNT NUMBER:</span>
+                <strong id="txnAccNumber">****</strong>
+            </div>
+            <div class="receipt-row">
+                <span>IFSC CODE:</span>
+                <strong id="txnIfsc">XXXX</strong>
+            </div>
+            <div class="receipt-row">
+                <span>BANK NAME:</span>
+                <strong id="txnBank">N/A</strong>
+            </div>
+            <div class="receipt-row">
+                <span>MODE OF PAYMENT:</span>
+                <strong id="txnMode">IMPS</strong>
+            </div>
+            <div class="receipt-row">
+                <span>STATUS:</span>
+                <strong style="color: #4CAF50;" id="txnStatus">SUCCESSFULLY CREDITED</strong>
+            </div>
+            <div class="receipt-row">
+                <span>TIME STAMP:</span>
+                <strong id="txnTime">DD/MM/YYYY HH:MM:SS AM</strong>
+            </div>
+        </div>
+
+        <button class="btn" onclick="window.location.href='running-panel.html'" style="margin-top: 20px;">GO TO DASHBOARD</button>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

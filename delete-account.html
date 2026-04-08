@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title" style="color: #f44336;"><i class="fas fa-exclamation-triangle"></i> DELETE YOUR ACCOUNT</div>
+
+    <div class="info-box" style="background: #ffebee; border-left-color: #f44336; color: #c62828;">
+        <p><i class="fas fa-warning"></i> <strong>WARNING:</strong> This action cannot be undone. All your bank details will be permanently deleted from the system.</p>
+    </div>
+
+    <p class="section-title">VERIFY YOUR ACCOUNT</p>
+
+    <input class="input" id="delPhone" placeholder="ENTER PHONE NUMBER">
+    <input class="input" id="delPassword" type="password" placeholder="ENTER PASSWORD">
+
+    <button class="btn" id="verifyDeleteBtn" style="border-color: #f44336; color: #f44336;">
+        VERIFY ACCOUNT
+    </button>
+
+    <div id="deleteConfirm" style="display: none; margin-top: 20px; padding: 20px; background: #ffebee; border-radius: 10px;">
+        <p style="color: #c62828; margin-bottom: 15px;">⚠️ Are you sure you want to delete your account?</p>
+        <button class="btn" id="confirmDeleteBtn" style="border-color: #f44336; color: #f44336; margin-bottom: 10px;">
+            YES, DELETE PERMANENTLY
+        </button>
+        <button class="btn" id="cancelDeleteBtn">
+            NO, CANCEL
+        </button>
+    </div>
+
+    <button class="btn btn-back" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const verifyBtn = document.getElementById("verifyDeleteBtn");
+    const confirmBtn = document.getElementById("confirmDeleteBtn");
+    const cancelBtn = document.getElementById("cancelDeleteBtn");
+
+    verifyBtn.addEventListener("click", () => {
+        const phone = document.getElementById("delPhone").value;
+        const password = document.getElementById("delPassword").value;
+        const user = JSON.parse(localStorage.getItem("currentUser"));
+
+        if (!user || user.phone !== phone || user.password !== password) {
+            alert("❌ Verification failed");
+            return;
+        }
+
+        document.getElementById("verifyDeleteBtn").style.display = "none";
+        document.getElementById("deleteConfirm").style.display = "block";
+    });
+
+    confirmBtn.addEventListener("click", () => {
+        const user = JSON.parse(localStorage.getItem("currentUser"));
+        user.accountDetails = null;
+        user.atmDetails = null;
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        alert("✅ Account deleted successfully. Redirecting...");
+        window.location.href = "account.html";
+    });
+
+    cancelBtn.addEventListener("click", () => {
+        document.getElementById("deleteConfirm").style.display = "none";
+        document.getElementById("verifyDeleteBtn").style.display = "block";
+    });
+});
+</script>
+
+</body>
+</html>

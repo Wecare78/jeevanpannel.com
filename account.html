@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+
+    <div class="account-info">
+        <p class="section-title">BANK DETAILS</p>
+        <div class="info-row">
+            <span class="label">ACCOUNT NUMBER:</span>
+            <span class="value" id="accNumber">N/A</span>
+        </div>
+        <div class="info-row">
+            <span class="label">IFSC CODE:</span>
+            <span class="value" id="accIfsc">N/A</span>
+        </div>
+        <div class="info-row">
+            <span class="label">ACCOUNT HOLDER NAME:</span>
+            <span class="value" id="accHolderName">N/A</span>
+        </div>
+        <div class="info-row">
+            <span class="label">BANK NAME:</span>
+            <span class="value" id="accBankName">N/A</span>
+        </div>
+        <div class="info-row">
+            <span class="label">CONTACT NUMBER:</span>
+            <span class="value" id="accContact">N/A</span>
+        </div>
+
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+
+        <p class="section-title">COMMISSION DETAILS</p>
+        <div class="info-row">
+            <span class="label">COMMISSION EARNED:</span>
+            <span class="value" id="commissionEarned">₹ 0</span>
+        </div>
+        <div class="info-row">
+            <span class="label">COMMISSION PERIOD:</span>
+            <span class="value" id="commissionPeriod">N/A to N/A</span>
+        </div>
+    </div>
+
+    <button class="btn btn-danger" id="deleteAccBtn" style="margin-top: 20px; background: #f44336; color: white; border-color: #f44336;">
+        <i class="fas fa-trash"></i> DELETE ACCOUNT FROM PANNEL
+    </button>
+
+    <button class="btn" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details - JEEVAN PANNEL</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-center">
+        <span class="logo"></span>
+        <span class="header-title">JEEVAN PANNEL<br><small>AUTHORIZED OFFICIAL JEEVAN PANNEL WEBSITE</small></span>
+    </div>
+</header>
+
+<div class="card">
+    <div class="title">SUBMIT ACCOUNT DETAILS</div>
+
+    <input class="input" id="accountNumber" placeholder="ENTER ACCOUNT NUMBER">
+    <input class="input" id="ifscCode" placeholder="ENTER IFSC CODE">
+    <input class="input" id="accountHolderName" placeholder="ENTER ACCOUNT HOLDER NAME">
+    <input class="input" id="bankName" placeholder="ENTER BANK NAME">
+    <input class="input" id="contactNumber" placeholder="CONTACT NUMBER">
+    
+    <div class="file-upload">
+        <label for="upiScanner">
+            <i class="fas fa-cloud-upload-alt"></i> UPLOAD UPI SCANNER
+        </label>
+        <input type="file" id="upiScanner" accept="image/*">
+        <span id="upiFileDisplay" style="display: none; margin-top: 8px; font-size: 12px; color: #4CAF50;">✓ File selected</span>
+    </div>
+
+    <button class="btn" id="submitAccountBtn">SUBMIT ACCOUNT DETAILS</button>
+    <button class="btn btn-back" onclick="window.history.back();">BACK</button>
+</div>
+
+<div class="footer">
+    <div class="footer-item" data-page="profile"><i class="fas fa-user"></i> MY PROFILE</div>
+    <div class="footer-item" data-page="account"><i class="fas fa-wallet"></i> MY ACCOUNT</div>
+    <div class="footer-item" data-page="support"><i class="fas fa-headset"></i> CUSTOMER SUPPORT</div>
+    <div class="footer-item" data-page="bonus"><i class="fas fa-gift"></i> BONUS</div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const upiInput = document.getElementById("upiScanner");
+    if (upiInput) {
+        upiInput.addEventListener("change", (e) => {
+            const display = document.getElementById("upiFileDisplay");
+            if (display && e.target.files.length > 0) {
+                display.style.display = "inline";
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
