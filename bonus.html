@@ -16,98 +16,19 @@
     </div>
 </header>
 
-<div class="card bonus-card" id="bonusPageRoot">
-    <div class="title"><i class="fas fa-gift"></i> BONUS CENTER</div>
-
-    <div class="bonus-block">
-        <div class="section-title">Referral Level Bonus System</div>
-        <div class="bonus-meta">
-            <span id="referralStatusMessage">Enter your completed referrals to see progress updates.</span>
+<div class="card bonus-card" style="display: flex; align-items: center; justify-content: center; min-height: 60vh;">
+    <div style="text-align: center; padding: 40px 20px;">
+        <div style="font-size: 48px; margin-bottom: 20px;">
+            <i class="fas fa-hourglass-half" style="color: #FF9800;"></i>
         </div>
-
-        <div class="referral-input-row">
-            <input class="input" id="referralCountInput" type="number" min="0" max="20" value="0" placeholder="Completed referrals">
-            <button class="btn btn-inline btn-secondary" id="updateReferralBtn">Update Progress</button>
+        
+        <div style="font-size: 28px; font-weight: bold; color: #FF9800; margin-bottom: 15px;">
+            ⚠️ Sorry bonus is not temporarily available
         </div>
-
-        <div class="referral-list">
-            <div class="referral-level" data-target="4" data-reward="₹300">
-                <div class="referral-label">
-                    <span>Level 1: Refer 4 people → ₹300</span>
-                    <span class="progress-status">0/4 referrals</span>
-                </div>
-                <div class="progress-track">
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                </div>
-            </div>
-
-            <div class="referral-level" data-target="8" data-reward="₹700">
-                <div class="referral-label">
-                    <span>Level 2: Refer 8 people → ₹700</span>
-                    <span class="progress-status">0/8 referrals</span>
-                </div>
-                <div class="progress-track">
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                </div>
-            </div>
-
-            <div class="referral-level" data-target="12" data-reward="₹1200">
-                <div class="referral-label">
-                    <span>Level 3: Refer 12 people → ₹1200</span>
-                    <span class="progress-status">0/12 referrals</span>
-                </div>
-                <div class="progress-track">
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                    <div class="progress-box"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bonus-block">
-        <div class="section-title">High Commission Weekly Bonus</div>
-        <div class="info-box bonus-info">
-            <p>Users who earn above ₹21,000 commission will receive a random daily bonus for 7 days.</p>
-        </div>
-
-        <div class="weekly-bonus-card">
-            <div class="bonus-meta">
-                <span><strong>Commission total:</strong> <span id="commissionTotal">₹0</span></span>
-                <span id="bonusEligibilityMessage">Earn above ₹21,000 commission to unlock the weekly bonus.</span>
-            </div>
-            <div id="weeklyBonusDays"></div>
-        </div>
-    </div>
-
-    <div class="bonus-block">
-        <div class="section-title">Redeem Bonus Code System</div>
-        <div class="redeem-card">
-            <div class="redeem-input-row">
-                <input class="input" id="bonusCodeInput" type="text" placeholder="Enter bonus code">
-                <button class="btn btn-inline" id="redeemBonusBtn">REDEEM</button>
-            </div>
-            <p class="subtext">Bonus codes are distributed daily, weekly, or monthly through official announcements.</p>
-            <p id="bonusResult" class="bonus-result"></p>
+        
+        <div style="font-size: 18px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <i class="fas fa-clock" style="color: #2196F3;"></i>
+            <span>⏳ Please check after sometime</span>
         </div>
     </div>
 </div>
@@ -120,5 +41,6 @@
 </div>
 
 <script src="js/main.js"></script>
+
 </body>
 </html>

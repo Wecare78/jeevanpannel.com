@@ -329,7 +329,7 @@ header #headerLogout {
     min-height: 14px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.08);
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.1s ease;
 }
 
 .progress-box.filled {
@@ -465,6 +465,26 @@ header #headerLogout {
 
 .input::placeholder {
     color: var(--text-muted);
+}
+
+/* ===== INPUT WITH ICON ===== */
+.input-with-icon {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 16px;
+    z-index: 1;
+}
+
+.input-with-icon .input {
+    padding-left: 40px;
 }
 
 /* ===== FILE UPLOAD ===== */
@@ -1166,5 +1186,14 @@ header #headerLogout {
     .account-btn {
         padding: 15px;
         font-size: 12px;
+    }
+
+    .progress-track {
+        grid-template-columns: repeat(auto-fit, minmax(12px, 1fr));
+        gap: 6px;
+    }
+
+    .progress-box {
+        min-height: 10px;
     }
 }

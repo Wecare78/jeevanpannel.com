@@ -251,6 +251,7 @@ class JeevanApp {
             totalEarnings: 0
         };
 
+        localStorage.setItem("customerId", userData.customerId);
         localStorage.setItem("user", JSON.stringify(userData));
         this.showToast("✅ Account created successfully!");
         setTimeout(() => window.location.href = "login.html", 1500);
@@ -269,6 +270,7 @@ class JeevanApp {
         }
 
         localStorage.setItem("currentUser", JSON.stringify(user));
+        localStorage.setItem("customerId", user.customerId);
         this.showToast("✅ Login successful!");
         setTimeout(() => window.location.href = "dashboard.html", 1500);
     }
@@ -336,6 +338,15 @@ class JeevanApp {
         const verifyInput = document.getElementById("verifyCustId");
         if (verifyInput) {
             this.showToast("✅ Payment submitted! Now verify your customer ID below.");
+
+            const customerId = localStorage.getItem("customerId") || this.generateCustomerId();
+            localStorage.setItem("customerId", customerId);
+
+            const customerIdDisplay = document.getElementById("customerIdDisplay");
+            if (customerIdDisplay) {
+                customerIdDisplay.value = customerId;
+            }
+
             const customerIdBox = document.getElementById("customerIdBox");
             if (customerIdBox) {
                 customerIdBox.style.display = "block";
@@ -350,7 +361,7 @@ class JeevanApp {
 
     generateCustomerId() {
         const random = Math.floor(10000 + Math.random() * 90000);
-        return `${random}@JEEVAN`;
+        return `${random}@jeevan`;
     }
 
     verifyCustomerId() {
@@ -367,7 +378,14 @@ class JeevanApp {
         localStorage.setItem("currentUser", JSON.stringify(user));
 
         this.showToast("✅ Customer ID verified!");
-        setTimeout(() => window.location.href = "running-panel.html", 1500);
+        
+        // Check if returning from bonus page
+        const returnToBonus = localStorage.getItem("returnToBonus");
+        if (returnToBonus === "true") {
+            setTimeout(() => window.location.href = "bonus.html", 1500);
+        } else {
+            setTimeout(() => window.location.href = "running-panel.html", 1500);
+        }
     }
 
     showTaxForm() {
@@ -673,8 +691,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Load customer ID display on activation / verify pages
     const customerIdDisplay = document.getElementById("customerIdDisplay");
-    if (customerIdDisplay && user) {
-        customerIdDisplay.value = user.customerId || "00000@JEEVAN";
+    let customerId = localStorage.getItem("customerId");
+    if (!customerId) {
+        customerId = this.generateCustomerId();
+        localStorage.setItem("customerId", customerId);
+    }
+    if (customerIdDisplay && customerId) {
+        customerIdDisplay.value = customerId;
     }
 
     // Setup receipt if on receipt page

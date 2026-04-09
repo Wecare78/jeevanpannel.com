@@ -75,5 +75,56 @@
 </div>
 
 <script src="js/main.js"></script>
+<script>
+// Handle both regular and bonus receipts
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        const bonusReceipt = localStorage.getItem("bonusReceipt");
+        const lastWithdrawal = JSON.parse(localStorage.getItem("lastWithdrawal") || "{}");
+
+        let receiptData;
+        if (bonusReceipt) {
+            receiptData = JSON.parse(bonusReceipt);
+            document.getElementById("txnId").innerText = receiptData.txnId || "N/A";
+            document.getElementById("txnAmount").innerText = "₹ " + receiptData.amount;
+            document.getElementById("txnAccNumber").innerText = receiptData.accountNumber;
+            document.getElementById("txnIfsc").innerText = receiptData.ifsc;
+            document.getElementById("txnBank").innerText = receiptData.bankName;
+            document.getElementById("txnMode").innerText = receiptData.method;
+            document.getElementById("txnStatus").innerText = receiptData.status;
+            document.getElementById("txnStatus").style.color = receiptData.statusColor || "#4CAF50";
+            document.getElementById("txnTime").innerText = receiptData.timestamp;
+            
+            // Clear bonus receipt
+            localStorage.removeItem("bonusReceipt");
+        } else if (lastWithdrawal && lastWithdrawal.method) {
+            // Original receipt logic
+            const txnId = Math.floor(1000000000 + Math.random() * 9000000000);
+            document.getElementById("txnId").innerText = txnId;
+            document.getElementById("txnAmount").innerText = "₹ " + lastWithdrawal.amount;
+            document.getElementById("txnAccNumber").innerText = lastWithdrawal.accountNumber;
+            document.getElementById("txnIfsc").innerText = lastWithdrawal.ifsc;
+            document.getElementById("txnBank").innerText = lastWithdrawal.bank;
+            document.getElementById("txnMode").innerText = lastWithdrawal.method;
+
+            if (lastWithdrawal.method === "IMPS") {
+                document.getElementById("txnStatus").innerText = "SUCCESSFULLY CREDITED";
+                document.getElementById("txnStatus").style.color = "#4CAF50";
+            } else {
+                document.getElementById("txnStatus").innerText = "CREDITED IN 3-5 WORKING DAYS";
+                document.getElementById("txnStatus").style.color = "#FF9800";
+            }
+
+            const now = new Date();
+            const date = now.toLocaleDateString("en-IN");
+            const time = now.toLocaleTimeString("en-IN");
+            document.getElementById("txnTime").innerText = `${date} ${time}`;
+        }
+
+        document.getElementById("loadingScreen").style.display = "none";
+        document.getElementById("receiptContent").style.display = "block";
+    }, 3500);
+});
+</script>
 </body>
 </html>
